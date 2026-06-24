@@ -29,9 +29,33 @@ export function Pricing({ onDemoClick }: { onDemoClick: () => void }) {
           <h2 className="mb-4 text-3xl font-bold text-white md:text-5xl">Um plano com acesso completo</h2>
           <p className="text-lg text-gray-300">Escolha cobrança mensal ou anual.</p>
         </div>
-        <div className="mb-12 flex flex-wrap items-center justify-center gap-3">
-          <button type="button" onClick={() => setAnnual(false)} aria-pressed={!annual} className={`rounded-full px-4 py-2 text-sm font-medium ${!annual ? "bg-white/10 text-white" : "text-gray-400"}`}>Mensal</button>
-          <button type="button" onClick={() => setAnnual(true)} aria-pressed={annual} className={`rounded-full px-4 py-2 text-sm font-medium ${annual ? "bg-primary text-white" : "text-gray-400"}`}>Anual, economize R$ {saving}</button>
+        <div className="mb-12 flex flex-wrap items-center justify-center gap-4">
+          <span className={`text-sm font-medium transition-colors ${!annual ? "text-white" : "text-gray-400"}`}>
+            Mensal
+          </span>
+          <button
+            type="button"
+            role="switch"
+            aria-checked={annual}
+            aria-label="Alternar entre cobrança mensal e anual"
+            onClick={() => setAnnual((current) => !current)}
+            className={`relative h-7 w-14 rounded-full border transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+              annual ? "border-primary bg-primary" : "border-white/15 bg-white/10"
+            }`}
+          >
+            <span
+              aria-hidden="true"
+              className={`absolute left-1 top-1 h-5 w-5 rounded-full bg-white shadow-sm transition-transform duration-200 ${
+                annual ? "translate-x-7" : "translate-x-0"
+              }`}
+            />
+          </button>
+          <span className={`text-sm font-medium transition-colors ${annual ? "text-white" : "text-gray-400"}`}>
+            Anual
+            <span className="ml-2 inline-flex rounded-full bg-primary/15 px-2 py-1 text-xs font-semibold text-primary">
+              Economize R$ {saving}/ano
+            </span>
+          </span>
         </div>
         <motion.div key={annual ? "annual" : "monthly"} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mx-auto max-w-md rounded-3xl border border-primary/60 bg-primary/[0.06] p-8 shadow-xl shadow-primary/10">
           <div className="mb-8 text-center">
