@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-border: hsl(var(--border));
+  --font-sans: "Inter", sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+  --background: 213 21% 17%;
+  --foreground: 210 20% 98%;
+  --card: 213 21% 22%;
+  --card-foreground: 210 20% 98%;
+  --primary: 16 68% 60%;
+  --primary-foreground: 210 20% 98%;
+  --muted: 215 15% 25%;
+  --muted-foreground: 215 20% 70%;
+  --border: 215 15% 30%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.surface {
+  background: color-mix(in srgb, hsl(var(--card)) 72%, transparent);
+  border: 1px solid rgb(255 255 255 / 0.1);
+  box-shadow: 0 28px 70px rgb(0 0 0 / 0.18);
+}
+
+.cal-shell iframe {
+  min-height: 640px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
