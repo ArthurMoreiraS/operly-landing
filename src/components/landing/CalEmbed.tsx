@@ -1,29 +1,36 @@
-import { useEffect, useMemo } from "react";
-import Cal, { getCalApi } from "@calcom/embed-react";
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { Check } from "lucide-react";
 
-function normalizeCalLink(value: string) {
-  return value.replace(/^https?:\/\/(app\.)?cal\.com\//, "").replace(/^\/+/, "").replace(/\/+$/, "");
+const CalScheduler = lazy(() => import("./CalScheduler"));
+
+function SchedulerPlaceholder() {
+  return (
+    <div className="flex h-[640px] items-center justify-center text-sm text-gray-400">
+      Carregando agenda…
+    </div>
+  );
 }
 
 export function CalEmbed() {
-  const calLink = normalizeCalLink(import.meta.env.VITE_CALCOM_EMBED_LINK || "operly-eeqtsh/30min");
-  const namespace = useMemo(() => calLink.split("/").filter(Boolean).at(-1) || "demo", [calLink]);
+  const shellRef = useRef<HTMLDivElement>(null);
+  const [load, setLoad] = useState(false);
 
+  // Só baixa o embed (pesado) quando a seção se aproxima da viewport.
   useEffect(() => {
-    void (async () => {
-      const cal = await getCalApi({ namespace });
-      cal("ui", {
-        theme: "dark",
-        cssVarsPerTheme: {
-          light: { "cal-brand": "#e0734c" },
-          dark: { "cal-brand": "#e0734c" },
-        },
-        hideEventTypeDetails: false,
-        layout: "month_view",
-      });
-    })();
-  }, [namespace]);
+    const el = shellRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "400px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="demo-scheduler" className="relative overflow-hidden px-3 py-16 md:px-4 md:py-24">
@@ -39,8 +46,14 @@ export function CalEmbed() {
               ))}
             </ul>
           </div>
-          <div className="cal-shell overflow-hidden rounded-2xl border border-white/10 bg-background p-2 sm:p-4">
-            <Cal namespace={namespace} calLink={calLink} style={{ width: "100%", height: "640px", overflow: "auto" }} config={{ layout: "month_view", theme: "dark" }} />
+          <div ref={shellRef} className="cal-shell overflow-hidden rounded-2xl border border-white/10 bg-background p-2 sm:p-4">
+            {load ? (
+              <Suspense fallback={<SchedulerPlaceholder />}>
+                <CalScheduler />
+              </Suspense>
+            ) : (
+              <SchedulerPlaceholder />
+            )}
           </div>
         </div>
       </div>

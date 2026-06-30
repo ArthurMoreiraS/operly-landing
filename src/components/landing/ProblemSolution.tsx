@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import { ArrowRight, Check, X } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 
 const problems = [
   "WhatsApp lotado de mensagens não respondidas",
@@ -24,7 +24,7 @@ export function ProblemSolution({ onDemoClick }: { onDemoClick: () => void }) {
           <p className="text-lg text-gray-300">Troque a correria desorganizada por uma operação que você consegue acompanhar.</p>
         </div>
         <div className="grid items-stretch gap-8 md:grid-cols-2">
-          <motion.div initial={{ opacity: 0, x: -18 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="rounded-3xl border border-red-500/20 bg-card/60 p-8">
+          <Reveal from="left" className="rounded-3xl border border-red-500/20 bg-card/60 p-8">
             <div className="mb-6 flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-500/10 text-red-400"><X size={20} /></div>
               <h3 className="text-2xl font-semibold text-white">Antes: operação no improviso</h3>
@@ -32,8 +32,8 @@ export function ProblemSolution({ onDemoClick }: { onDemoClick: () => void }) {
             <ul className="space-y-4">
               {problems.map((problem) => <li key={problem} className="flex items-start gap-3 text-gray-300"><X className="mt-1 shrink-0 text-red-400" size={18} /><span>{problem}</span></li>)}
             </ul>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, x: 18 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative overflow-hidden rounded-3xl border border-primary/35 bg-primary/[0.06] p-8">
+          </Reveal>
+          <Reveal from="right" className="relative overflow-hidden rounded-3xl border border-primary/35 bg-primary/[0.06] p-8">
             <div className="mb-6 flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-primary"><Check size={20} /></div>
               <h3 className="text-2xl font-semibold text-white">Depois: operação no Operly</h3>
@@ -44,7 +44,7 @@ export function ProblemSolution({ onDemoClick }: { onDemoClick: () => void }) {
             <button type="button" onClick={onDemoClick} className="mt-8 flex w-full items-center justify-between border-t border-white/10 pt-6 text-sm font-medium text-primary">
               <span>Agendar demonstração</span><ArrowRight size={16} />
             </button>
-          </motion.div>
+          </Reveal>
         </div>
       </div>
     </section>

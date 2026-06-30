@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/Reveal";
 
 const features = [
   "Agendamentos ilimitados",
@@ -57,7 +57,7 @@ export function Pricing({ onDemoClick }: { onDemoClick: () => void }) {
             </span>
           </span>
         </div>
-        <motion.div key={annual ? "annual" : "monthly"} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mx-auto max-w-md rounded-3xl border border-primary/60 bg-primary/[0.06] p-8 shadow-xl shadow-primary/10">
+        <Reveal immediate key={annual ? "annual" : "monthly"} className="mx-auto max-w-md rounded-3xl border border-primary/60 bg-primary/[0.06] p-8 shadow-xl shadow-primary/10">
           <div className="mb-8 text-center">
             <p className="mb-4 text-sm font-semibold text-primary">Operly completo</p>
             <div className="flex items-end justify-center gap-1"><span className="mb-2 text-gray-300">R$</span><span className="text-6xl font-bold text-white">{price}</span><span className="mb-2 text-gray-300">/mês</span></div>
@@ -68,7 +68,7 @@ export function Pricing({ onDemoClick }: { onDemoClick: () => void }) {
           </ul>
           <Button onClick={onDemoClick} className="h-12 w-full">Agendar demonstração</Button>
           <p className="mt-3 text-center text-xs text-gray-400">Sem fidelidade, cancele quando quiser</p>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

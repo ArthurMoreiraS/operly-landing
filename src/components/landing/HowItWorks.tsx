@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import { BellRing, ClipboardList, Share2 } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 
 const steps = [
   { icon: ClipboardList, title: "Cadastre seus serviços", description: "Adicione lavagens, pacotes, preços e duração de cada serviço." },
@@ -17,14 +17,14 @@ export function HowItWorks() {
         </div>
         <div className="grid gap-8 md:grid-cols-3">
           {steps.map((step, index) => (
-            <motion.article key={step.title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08 }} className="border-t border-white/15 pt-6">
+            <Reveal as="article" key={step.title} delay={index * 80} className="border-t border-white/15 pt-6">
               <div className="mb-6 flex items-center justify-between">
                 <span className="text-sm font-semibold text-primary">Passo {index + 1}</span>
                 <step.icon className="h-6 w-6 text-primary" />
               </div>
               <h3 className="mb-3 text-xl font-semibold text-white">{step.title}</h3>
               <p className="leading-7 text-gray-300">{step.description}</p>
-            </motion.article>
+            </Reveal>
           ))}
         </div>
       </div>
