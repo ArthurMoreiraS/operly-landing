@@ -94,6 +94,53 @@ p {
   transform: none;
 }
 
+/* Entrada acima da dobra: roda sozinha no load (sem JS), via CSS.
+   Garante conteúdo visível no HTML pré-renderizado e mata a tela cinza. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Card flutuante do hero — micro-movimento contínuo para dar vida. */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Brilho do hero respirando suavemente. */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
+
+.hero-glow {
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -105,8 +152,14 @@ p {
   }
 
   /* Garante que o conteúdo apareça mesmo sem animação. */
-  .reveal {
+  .reveal,
+  .rise {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .float,
+  .hero-glow {
+    animation: none !important;
   }
 }

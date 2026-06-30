@@ -1,18 +1,23 @@
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { Route, Switch } from "wouter";
-import App from "./App";
-import LegalPage from "./pages/Legal";
+import { createRoot, hydrateRoot } from "react-dom/client";
+import { Router } from "wouter";
+import { AppRoutes } from "./AppRoutes";
 import "@fontsource-variable/inter";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(
+const rootEl = document.getElementById("root")!;
+const app = (
   <StrictMode>
-    <Switch>
-      <Route path="/" component={App} />
-      <Route path="/termos"><LegalPage kind="terms" /></Route>
-      <Route path="/privacidade"><LegalPage kind="privacy" /></Route>
-      <Route component={App} />
-    </Switch>
-  </StrictMode>,
+    <Router>
+      <AppRoutes />
+    </Router>
+  </StrictMode>
 );
+
+// Produção: hidrata o HTML pré-renderizado (SSG).
+// Dev: #root vem vazio, então cria do zero.
+if (rootEl.hasChildNodes()) {
+  hydrateRoot(rootEl, app);
+} else {
+  createRoot(rootEl).render(app);
+}
