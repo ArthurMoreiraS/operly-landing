@@ -14,8 +14,8 @@ const features = [
   "Suporte via WhatsApp",
 ];
 
-const MONTHLY_PRICE = 297;
-const ANNUAL_PRICE = 237;
+const MONTHLY_PRICE = 397;
+const ANNUAL_PRICE = 317;
 
 export function Pricing({ onDemoClick }: { onDemoClick: () => void }) {
   const [annual, setAnnual] = useState(false);
