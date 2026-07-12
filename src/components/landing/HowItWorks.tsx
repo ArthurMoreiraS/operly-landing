@@ -1,5 +1,6 @@
 import { BellRing, ClipboardList, Share2 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { SectionHeader } from "@/components/landing/SectionHeader";
 
 const steps = [
   { icon: ClipboardList, title: "Cadastre seus serviços", description: "Adicione lavagens, pacotes, preços e duração de cada serviço." },
@@ -9,12 +10,13 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="px-4 py-24">
+    <section className="section-alt px-4 py-24">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white md:text-5xl">Da configuração ao primeiro agendamento</h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-300">Três passos que refletem o fluxo real do seu negócio.</p>
-        </div>
+        <SectionHeader
+          eyebrow="Como funciona"
+          title="Da configuração ao primeiro agendamento"
+          subtitle="Três passos que refletem o fluxo real do seu negócio."
+        />
         <div className="grid gap-8 md:grid-cols-3">
           {steps.map((step, index) => (
             <Reveal as="article" key={step.title} delay={index * 80} className="border-t border-white/15 pt-6">
