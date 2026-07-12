@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/Reveal";
+import { SectionHeader } from "@/components/landing/SectionHeader";
+import { ANNUAL_PRICE, MONTHLY_PRICE } from "@/lib/plans";
 
 const features = [
   "Agendamentos ilimitados",
@@ -14,21 +16,15 @@ const features = [
   "Suporte via WhatsApp",
 ];
 
-const MONTHLY_PRICE = 397;
-const ANNUAL_PRICE = 317;
-
 export function Pricing({ onDemoClick }: { onDemoClick: () => void }) {
   const [annual, setAnnual] = useState(false);
   const price = annual ? ANNUAL_PRICE : MONTHLY_PRICE;
   const saving = (MONTHLY_PRICE - ANNUAL_PRICE) * 12;
 
   return (
-    <section id="pricing" className="bg-black/15 px-4 py-24">
+    <section id="pricing" className="section-alt px-4 py-24">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white md:text-5xl">Um plano com acesso completo</h2>
-          <p className="text-lg text-gray-300">Escolha cobrança mensal ou anual.</p>
-        </div>
+        <SectionHeader eyebrow="Preço" title="Um plano com acesso completo" subtitle="Escolha cobrança mensal ou anual." className="mb-12" />
         <div className="mb-12 flex flex-wrap items-center justify-center gap-4">
           <span className={`text-sm font-medium transition-colors ${!annual ? "text-white" : "text-gray-400"}`}>
             Mensal
@@ -57,11 +53,12 @@ export function Pricing({ onDemoClick }: { onDemoClick: () => void }) {
             </span>
           </span>
         </div>
-        <Reveal immediate key={annual ? "annual" : "monthly"} className="mx-auto max-w-md rounded-3xl border border-primary/60 bg-primary/[0.06] p-8 shadow-xl shadow-primary/10">
+        <Reveal immediate key={annual ? "annual" : "monthly"} className="card-hover mx-auto max-w-md rounded-3xl border border-primary/60 bg-primary/[0.06] p-8 shadow-xl shadow-primary/10">
           <div className="mb-8 text-center">
             <p className="mb-4 text-sm font-semibold text-primary">Operly completo</p>
             <div className="flex items-end justify-center gap-1"><span className="mb-2 text-gray-300">R$</span><span className="text-6xl font-bold text-white">{price}</span><span className="mb-2 text-gray-300">/mês</span></div>
             <p className="mt-3 text-sm text-gray-400">{annual ? `Cobrado anualmente, R$ ${price * 12}/ano` : `Ou R$ ${ANNUAL_PRICE}/mês no plano anual`}</p>
+            <p className="mt-1 text-xs text-gray-400">Se paga recuperando ~5 lavagens no mês.</p>
           </div>
           <ul className="mb-8 space-y-3">
             {features.map((feature) => <li key={feature} className="flex items-center gap-3 text-sm text-white"><Check className="h-4 w-4 shrink-0 text-primary" />{feature}</li>)}
