@@ -38,6 +38,7 @@ export function CalEmbed() {
       <div className="mx-auto max-w-6xl rounded-3xl border border-white/10 bg-card/65 p-4 shadow-2xl sm:p-6 md:p-10">
         <div className="grid items-center gap-8 md:grid-cols-[0.8fr_1.2fr]">
           <div className="text-center md:text-left">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Demonstração</p>
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">Veja o Operly funcionando no seu cenário</h2>
             <p className="mb-8 leading-7 text-gray-300">Escolha um horário. Em 30 minutos mostramos como organizar agenda, clientes e faturamento.</p>
             <ul className="mx-auto max-w-sm space-y-4 text-left md:mx-0">
