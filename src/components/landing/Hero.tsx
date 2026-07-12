@@ -1,6 +1,8 @@
 import { ArrowUpRight, CheckCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { DashboardMockup } from "@/components/landing/DashboardMockup";
+import dashboardAvif from "@/assets/dashboard.png?w=640;960;1280;1918&format=avif&as=srcset";
+import dashboardWebp from "@/assets/dashboard.png?w=640;960;1280;1918&format=webp&as=srcset";
+import dashboardFallback from "@/assets/dashboard.png?w=1280&format=webp";
 
 export function Hero({ onDemoClick }: { onDemoClick: () => void }) {
   return (
@@ -30,7 +32,19 @@ export function Hero({ onDemoClick }: { onDemoClick: () => void }) {
 
         <div className="rise relative mx-auto max-w-5xl" style={{ animationDelay: "260ms" }}>
           <div className="rounded-3xl border border-white/10 bg-black/15 p-2 shadow-2xl">
-            <DashboardMockup />
+            <picture>
+              <source type="image/avif" srcSet={dashboardAvif} sizes="(max-width: 1024px) 100vw, 1024px" />
+              <source type="image/webp" srcSet={dashboardWebp} sizes="(max-width: 1024px) 100vw, 1024px" />
+              <img
+                src={dashboardFallback}
+                width={1918}
+                height={955}
+                alt="Painel do Operly com agenda, faturamento e indicadores da operação"
+                fetchPriority="high"
+                decoding="async"
+                className="h-auto w-full rounded-2xl border border-white/5"
+              />
+            </picture>
           </div>
           <div className="surface float absolute -bottom-7 right-6 hidden rounded-2xl p-4 text-left md:block lg:-right-10 lg:bottom-12">
             <div className="flex items-center gap-3">
