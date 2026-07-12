@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, CheckCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import dashboardAvif from "@/assets/dashboard.png?w=640;960;1280;1918&format=avif&as=srcset";
 import dashboardWebp from "@/assets/dashboard.png?w=640;960;1280;1918&format=webp&as=srcset";
@@ -50,6 +50,13 @@ export function Hero({ onDemoClick }: { onDemoClick: () => void }) {
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-primary"><ArrowUpRight className="h-5 w-5" /></div>
               <div><p className="text-xs text-gray-400">Faturamento hoje</p><p className="text-lg font-bold text-white">R$ 1.250,00</p></div>
+            </div>
+          </div>
+          {/* Toast de lembrete — desincronizado do outro card via animation-delay. */}
+          <div className="surface float absolute -top-6 left-6 hidden rounded-2xl p-4 text-left md:block lg:-left-10 lg:top-16" style={{ animationDelay: "2.5s" }}>
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400"><CheckCheck className="h-5 w-5" /></div>
+              <div><p className="text-xs text-gray-400">WhatsApp</p><p className="text-sm font-bold text-white">Lembrete enviado</p></div>
             </div>
           </div>
         </div>
