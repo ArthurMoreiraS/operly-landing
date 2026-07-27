@@ -87,7 +87,7 @@ export function RoiCalculator({ onDemoClick }: { onDemoClick: () => void }) {
             </p>
           </div>
           <div className="mt-6 flex flex-col items-center gap-3">
-            <Button size="lg" className="w-full rounded-full sm:w-auto sm:px-10" onClick={onDemoClick}>Agendar demonstração</Button>
+            <Button size="lg" className="w-full rounded-full sm:w-auto sm:px-10" onClick={onDemoClick}>Ver o Operly funcionando</Button>
             <p className="text-xs text-gray-500">Estimativa ilustrativa. Resultados variam conforme a operação.</p>
           </div>
         </Reveal>

@@ -15,20 +15,23 @@ export function Hero({ onDemoClick }: { onDemoClick: () => void }) {
           Feito para lava-rápidos e estética automotiva
         </div>
         <h1 className="rise mb-6 text-4xl font-extrabold leading-[1.08] tracking-[-0.035em] text-white md:text-6xl lg:text-7xl" style={{ animationDelay: "60ms" }}>
-          Seu lava-rápido faturando
-          <span className="mt-2 block text-primary">R$ 3.200 a mais por mês</span>
+          Seu cliente esquece.
+          <span className="mt-2 block text-primary">O Operly lembra.</span>
         </h1>
         <p className="rise mx-auto mb-10 max-w-2xl text-lg leading-8 text-gray-300 md:text-xl" style={{ animationDelay: "120ms" }}>
-          Agendamentos, cobranças e lembretes via WhatsApp em um só lugar. Menos papel, menos faltas e mais clientes voltando.
+          Agenda online, ordens de serviço e lembretes automáticos no WhatsApp em um só lugar. Menos papel, menos faltas e mais clientes voltando.
         </p>
-        <div className="rise mb-16 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ animationDelay: "180ms" }}>
+        <div className="rise mb-4 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ animationDelay: "180ms" }}>
           <Button size="lg" className="w-full rounded-full shadow-lg shadow-primary/20 sm:w-auto" onClick={onDemoClick}>
-            Agendar demonstração
+            Ver o Operly funcionando
           </Button>
           <Button variant="outline" size="lg" className="w-full rounded-full sm:w-auto" onClick={() => document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })}>
             Ver planos e preços
           </Button>
         </div>
+        <p className="rise mb-16 text-sm text-gray-400" style={{ animationDelay: "200ms" }}>
+          Videochamada de 30 min · sem compromisso de contratação
+        </p>
 
         <div className="rise relative mx-auto max-w-5xl" style={{ animationDelay: "260ms" }}>
           <div className="rounded-3xl border border-white/10 bg-black/15 p-2 shadow-2xl">

@@ -95,7 +95,7 @@ export function CompareSection({ onDemoClick }: { onDemoClick: () => void }) {
 
         <div className="mt-10 text-center">
           <button type="button" onClick={onDemoClick} className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
-            Agendar demonstração <ArrowRight size={16} />
+            Ver o Operly funcionando <ArrowRight size={16} />
           </button>
         </div>
       </div>

@@ -1,10 +1,10 @@
-import { ArrowDown, BarChart3, CalendarDays, Check, ClipboardCheck, MessageCircle, Repeat } from "lucide-react";
+import { BarChart3, CalendarDays, Check, ClipboardCheck, MessageCircle, Repeat } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/landing/SectionHeader";
 
 export function FeaturesShowcase() {
   return (
-    <section id="funcionalidades" className="px-4 py-24">
+    <section id="funcionalidades" className="section-alt px-4 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           eyebrow="Funcionalidades"
@@ -78,20 +78,20 @@ export function FeaturesShowcase() {
             </div>
           </Reveal>
 
-          {/* Lembretes (banner de largura total, aponta para a seção WhatsApp) */}
+          {/* Lembretes (banner de largura total; a seção detalhada fica logo acima) */}
           <Reveal className="card-hover rounded-3xl border border-white/10 bg-card/60 p-6 md:col-span-3">
-            <a href="#lembretes" className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-start gap-4">
                 <MessageCircle className="mt-1 h-6 w-6 shrink-0 text-primary" />
                 <div>
                   <h3 className="mb-1 text-xl font-semibold text-white">Lembretes automáticos no WhatsApp</h3>
-                  <p className="text-sm leading-6 text-gray-300">O recurso que mais reduz faltas.</p>
+                  <p className="text-sm leading-6 text-gray-300">O recurso que mais reduz faltas — na véspera e no dia do serviço.</p>
                 </div>
               </div>
-              <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
-                Veja como funciona <ArrowDown className="h-4 w-4" />
+              <span className="inline-flex shrink-0 items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.07] px-3 py-1.5 text-xs font-semibold text-primary">
+                <Check className="h-3.5 w-3.5" /> Incluído no plano
               </span>
-            </a>
+            </div>
           </Reveal>
         </div>
       </div>

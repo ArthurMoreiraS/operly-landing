@@ -43,8 +43,8 @@ function Navbar() {
             <a href={APP_URL}>Entrar</a>
           </Button>
           <Button size="sm" className="rounded-full px-4 sm:px-6" onClick={scrollToDemo}>
-            <span className="hidden sm:inline">Agendar demonstração</span>
-            <span className="sm:hidden">Agendar demo</span>
+            <span className="hidden sm:inline">Ver demonstração</span>
+            <span className="sm:hidden">Ver demo</span>
           </Button>
         </div>
       </div>
@@ -81,8 +81,8 @@ export default function App() {
       <Navbar />
       <Hero onDemoClick={scrollToDemo} />
       <CompareSection onDemoClick={scrollToDemo} />
-      <FeaturesShowcase />
       <WhatsAppSection />
+      <FeaturesShowcase />
       <RoiCalculator onDemoClick={scrollToDemo} />
       <HowItWorks />
       <TrustBlock />

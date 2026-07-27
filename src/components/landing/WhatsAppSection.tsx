@@ -16,7 +16,7 @@ const messages = [
 
 export function WhatsAppSection() {
   return (
-    <section id="lembretes" className="section-alt px-4 py-24">
+    <section id="lembretes" className="px-4 py-24">
       <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
         <div>
           <SectionHeader

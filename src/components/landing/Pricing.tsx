@@ -17,9 +17,10 @@ const features = [
 ];
 
 export function Pricing({ onDemoClick }: { onDemoClick: () => void }) {
-  const [annual, setAnnual] = useState(false);
+  // Abre no anual: é o plano que queremos ancorar, e a economia fica visível de cara.
+  const [annual, setAnnual] = useState(true);
   const price = annual ? ANNUAL_PRICE : MONTHLY_PRICE;
-  const saving = (MONTHLY_PRICE - ANNUAL_PRICE) * 12;
+  const monthlySaving = MONTHLY_PRICE - ANNUAL_PRICE;
 
   return (
     <section id="pricing" className="section-alt px-4 py-24">
@@ -49,7 +50,7 @@ export function Pricing({ onDemoClick }: { onDemoClick: () => void }) {
           <span className={`text-sm font-medium transition-colors ${annual ? "text-white" : "text-gray-400"}`}>
             Anual
             <span className="ml-2 inline-flex rounded-full bg-primary/15 px-2 py-1 text-xs font-semibold text-primary">
-              Economize R$ {saving}/ano
+              Economize R$ {monthlySaving}/mês
             </span>
           </span>
         </div>
@@ -57,14 +58,14 @@ export function Pricing({ onDemoClick }: { onDemoClick: () => void }) {
           <div className="mb-8 text-center">
             <p className="mb-4 text-sm font-semibold text-primary">Operly completo</p>
             <div className="flex items-end justify-center gap-1"><span className="mb-2 text-gray-300">R$</span><span className="text-6xl font-bold text-white">{price}</span><span className="mb-2 text-gray-300">/mês</span></div>
-            <p className="mt-3 text-sm text-gray-400">{annual ? `Cobrado anualmente, R$ ${price * 12}/ano` : `Ou R$ ${ANNUAL_PRICE}/mês no plano anual`}</p>
-            <p className="mt-1 text-xs text-gray-400">Se paga recuperando ~5 lavagens no mês.</p>
+            <p className="mt-3 text-sm text-gray-400">{annual ? `Cobrado anualmente, R$ ${price * 12}/ano (economia de R$ ${monthlySaving * 12})` : `Ou R$ ${ANNUAL_PRICE}/mês no plano anual`}</p>
+            <p className="mt-1 text-xs text-gray-400">Menos de R$ {Math.round(price / 30)} por dia.</p>
           </div>
           <ul className="mb-8 space-y-3">
             {features.map((feature) => <li key={feature} className="flex items-center gap-3 text-sm text-white"><Check className="h-4 w-4 shrink-0 text-primary" />{feature}</li>)}
           </ul>
-          <Button onClick={onDemoClick} className="h-12 w-full">Agendar demonstração</Button>
-          <p className="mt-3 text-center text-xs text-gray-400">Sem fidelidade, cancele quando quiser</p>
+          <Button onClick={onDemoClick} className="h-12 w-full">Ver o Operly funcionando</Button>
+          <p className="mt-3 text-center text-xs text-gray-400">Videochamada de 30 min · sem fidelidade, cancele quando quiser</p>
         </Reveal>
       </div>
     </section>

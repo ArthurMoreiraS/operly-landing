@@ -10,8 +10,8 @@ const pillars = [
 ];
 
 const metrics = [
-  { value: "−50%", label: "em faltas", context: "com lembretes automáticos" },
-  { value: "+R$ 3.200", label: "por mês, em média", context: "com mais recorrência e controle" },
+  { value: "−50%", label: "em faltas", context: "com lembretes automáticos*" },
+  { value: "24h", label: "de agenda aberta", context: "cliente marca pelo link, sem ligar" },
   { value: "R$ 0", label: "de multa para cancelar", context: "sem fidelidade ou carência" },
   { value: "< 10 min", label: "para começar", context: "do cadastro à agenda online" },
 ];
@@ -22,17 +22,17 @@ export function TrustBlock() {
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           eyebrow="Por que confiar"
-          title="Risco zero para testar"
-          subtitle="Sem fidelidade, com garantia e com seus dados sempre exportáveis."
+          title="Contratar o Operly tem volta"
+          subtitle="Sem fidelidade, com garantia de reembolso e com seus dados sempre exportáveis."
         />
 
         {/* Herói do bloco: garantia de 14 dias */}
         <Reveal className="mb-12 flex flex-col items-center gap-5 rounded-3xl border border-primary/40 bg-primary/[0.06] p-8 text-center md:flex-row md:text-left">
           <Shield className="h-12 w-12 shrink-0 text-primary" />
           <div>
-            <h3 className="text-xl font-bold text-white">Garantia de 14 dias</h3>
+            <h3 className="text-xl font-bold text-white">Garantia de reembolso em 14 dias</h3>
             <p className="mt-1 leading-7 text-gray-300">
-              Teste o Operly completo. Se não fizer sentido para sua operação, solicite o reembolso dentro do período.
+              Use o Operly completo por 14 dias. Se não fizer sentido para sua operação, é só pedir o reembolso dentro do período.
             </p>
           </div>
         </Reveal>
@@ -58,7 +58,7 @@ export function TrustBlock() {
             </div>
           ))}
         </Reveal>
-        <p className="mt-6 text-center text-xs text-gray-400">Valores estimados com base no uso do produto. Resultados variam conforme a operação.</p>
+        <p className="mt-6 text-center text-xs text-gray-400">*Redução de faltas estimada com base no uso do produto. Resultados variam conforme a operação.</p>
       </div>
     </section>
   );
