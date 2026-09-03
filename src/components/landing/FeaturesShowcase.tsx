@@ -67,7 +67,7 @@ export function FeaturesShowcase() {
             <div aria-hidden="true" className="flex items-end justify-between gap-6">
               <div>
                 <p className="text-xs text-gray-400">Revenue this month</p>
-                <p className="text-3xl font-bold tabular-nums text-white">CA&#36;18,400</p>
+                <p className="text-3xl font-bold tabular-nums text-white">&#36;18,400</p>
                 <p className="text-xs font-semibold text-primary">+12% vs last month</p>
               </div>
               <div className="flex h-16 max-w-40 flex-1 items-end gap-1.5">

@@ -50,16 +50,16 @@ export function Pricing({ onDemoClick }: { onDemoClick: () => void }) {
           <span className={`text-sm font-medium transition-colors ${annual ? "text-white" : "text-gray-400"}`}>
             Annual
             <span className="ml-2 inline-flex rounded-full bg-primary/15 px-2 py-1 text-xs font-semibold text-primary">
-              Save CA&#36;{monthlySaving}/month
+              Save &#36;{monthlySaving}/month
             </span>
           </span>
         </div>
         <Reveal immediate key={annual ? "annual" : "monthly"} className="card-hover mx-auto max-w-md rounded-3xl border border-primary/60 bg-primary/[0.06] p-8 shadow-xl shadow-primary/10">
           <div className="mb-8 text-center">
             <p className="mb-4 text-sm font-semibold text-primary">Complete Operly</p>
-            <div className="flex items-end justify-center gap-1"><span className="mb-2 text-gray-300">CA&#36;</span><span className="text-6xl font-bold text-white">{price}</span><span className="mb-2 text-gray-300">/month</span></div>
-            <p className="mt-3 text-sm text-gray-400">{annual ? `Billed annually at CA$${price * 12}/year (save CA$${monthlySaving * 12})` : `Or CA$${ANNUAL_PRICE}/month with annual billing`}</p>
-            <p className="mt-1 text-xs text-gray-400">Less than CA&#36;{Math.round(price / 30)} per day. Prices in CAD.</p>
+            <div className="flex items-end justify-center gap-1"><span className="mb-2 text-gray-300">&#36;</span><span className="text-6xl font-bold text-white">{price}</span><span className="mb-2 text-gray-300">/month</span></div>
+            <p className="mt-3 text-sm text-gray-400">{annual ? `Billed annually at $${price * 12}/year (save $${monthlySaving * 12})` : `Or $${ANNUAL_PRICE}/month with annual billing`}</p>
+            <p className="mt-1 text-xs text-gray-400">Less than &#36;{Math.round(price / 30)} per day.</p>
           </div>
           <ul className="mb-8 space-y-3">
             {features.map((feature) => <li key={feature} className="flex items-center gap-3 text-sm text-white"><Check className="h-4 w-4 shrink-0 text-primary" />{feature}</li>)}

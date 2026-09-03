@@ -5,12 +5,12 @@ import { SectionHeader } from "@/components/landing/SectionHeader";
 import { MONTHLY_PRICE } from "@/lib/plans";
 
 // Setting both fraction digit bounds keeps whole-dollar formatting consistent.
-const cad = new Intl.NumberFormat("en-CA", {
-  style: "currency",
-  currency: "CAD",
+const number = new Intl.NumberFormat("en", {
   minimumFractionDigits: 0,
   maximumFractionDigits: 0,
 });
+
+const formatMoney = (value: number) => `$${number.format(value)}`;
 
 const WEEKS_PER_MONTH = 4.33;
 /** Illustrative share of no-shows recovered with reminders. */
@@ -72,17 +72,17 @@ export function RoiCalculator({ onDemoClick }: { onDemoClick: () => void }) {
         <Reveal className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-card/60 p-6 md:p-10">
           <div className="space-y-6">
             <SliderField id="roi-cars" label="Cars per day" min={1} max={60} value={carsPerDay} format={(value) => `${value}`} onChange={setCarsPerDay} />
-            <SliderField id="roi-ticket" label="Average ticket" min={30} max={300} step={5} value={ticket} format={(value) => cad.format(value)} onChange={setTicket} />
+            <SliderField id="roi-ticket" label="Average ticket" min={30} max={300} step={5} value={ticket} format={formatMoney} onChange={setTicket} />
             <SliderField id="roi-noshows" label="No-shows per week" min={0} max={20} value={noShowsPerWeek} format={(value) => `${value}`} onChange={setNoShowsPerWeek} />
           </div>
           <div className="mt-8 rounded-2xl border border-primary/25 bg-primary/[0.06] p-6 text-center">
-            <p className="text-sm text-gray-300">At roughly {cad.format(monthlyRevenue)}/month in revenue, no-shows cost</p>
+            <p className="text-sm text-gray-300">At roughly {formatMoney(monthlyRevenue)}/month in revenue, no-shows cost</p>
             <p className="my-2 text-4xl font-bold text-primary md:text-5xl">
-              {cad.format(monthlyLoss)}
+              {formatMoney(monthlyLoss)}
               <span className="text-lg font-semibold text-gray-300">/month</span>
             </p>
             <p className="text-sm text-gray-300">
-              Automated reminders could help recover ~<span className="font-semibold text-white">{cad.format(recovered)}/month</span>
+              Automated reminders could help recover ~<span className="font-semibold text-white">{formatMoney(recovered)}/month</span>
               {multiple >= 1 && <> — {multiple.toFixed(1)}× the monthly Operly subscription</>}
             </p>
           </div>

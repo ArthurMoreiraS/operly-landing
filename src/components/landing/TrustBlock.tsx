@@ -12,7 +12,7 @@ const pillars = [
 const metrics = [
   { value: "−50%", label: "fewer no-shows", context: "with automated reminders*" },
   { value: "24/7", label: "online booking", context: "customers book without calling" },
-  { value: "CA$0", label: "cancellation fee", context: "no long-term contract or lock-in" },
+  { value: "$0", label: "cancellation fee", context: "no long-term contract or lock-in" },
   { value: "< 10 min", label: "to get started", context: "from signup to online booking" },
 ];
 

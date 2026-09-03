@@ -21,9 +21,9 @@ function DashboardMockup() {
         </div>
         <div className="grid gap-3 p-4 sm:grid-cols-3 sm:p-6">
           {[
-            { icon: DollarSign, label: "Revenue today", value: "CA$1,250" },
+            { icon: DollarSign, label: "Revenue today", value: "$1,250" },
             { icon: CalendarDays, label: "Appointments", value: "14" },
-            { icon: Users, label: "Average ticket", value: "CA$89" },
+            { icon: Users, label: "Average ticket", value: "$89" },
           ].map((metric) => (
             <div key={metric.label} className="rounded-xl border border-white/10 bg-white/[0.04] p-4">
               <div className="mb-3 flex items-center justify-between text-gray-400">
@@ -100,7 +100,7 @@ export function Hero({ onDemoClick }: { onDemoClick: () => void }) {
           <div className="surface float absolute -bottom-7 right-6 hidden rounded-2xl p-4 text-left md:block lg:-right-10 lg:bottom-12">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-primary"><ArrowUpRight className="h-5 w-5" /></div>
-              <div><p className="text-xs text-gray-400">Revenue today</p><p className="text-lg font-bold text-white">CA&#36;1,250</p></div>
+              <div><p className="text-xs text-gray-400">Revenue today</p><p className="text-lg font-bold text-white">&#36;1,250</p></div>
             </div>
           </div>
           {/* Offset reminder toast animation from the revenue card. */}
