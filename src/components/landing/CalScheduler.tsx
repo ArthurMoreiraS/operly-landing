@@ -6,9 +6,9 @@ function normalizeCalLink(value: string) {
 }
 
 /**
- * Embed do Cal.com isolado em seu próprio chunk.
- * Carregado via React.lazy só quando a seção entra na viewport,
- * mantendo o @calcom/embed-react fora do bundle inicial.
+ * Cal.com embed isolated in its own chunk.
+ * Loaded with React.lazy only as the section approaches the viewport,
+ * keeping @calcom/embed-react out of the initial bundle.
  */
 export default function CalScheduler() {
   const calLink = normalizeCalLink(import.meta.env.VITE_CALCOM_EMBED_LINK || "operly-eeqtsh/30min");

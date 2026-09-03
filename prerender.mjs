@@ -1,5 +1,5 @@
-// Pré-renderização (SSG): injeta o HTML de cada rota no template do build cliente.
-// Resultado: o navegador recebe a landing já montada e pinta na hora, sem esperar o JS.
+// Static prerendering injects each route into the client build template.
+// The browser receives complete HTML and can paint without waiting for JavaScript.
 import { readFileSync, writeFileSync, mkdirSync, rmSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -8,7 +8,7 @@ const root = dirname(fileURLToPath(import.meta.url));
 const dist = resolve(root, "dist");
 const ssrDir = resolve(root, "dist-ssr");
 
-// pathToFileURL: import() dinâmico exige file:// no Windows (caminhos c:\ falham).
+// Dynamic import requires a file URL on Windows.
 const { render } = await import(pathToFileURL(resolve(ssrDir, "entry-server.js")).href);
 const template = readFileSync(resolve(dist, "index.html"), "utf-8");
 
@@ -21,7 +21,7 @@ const routes = [
 for (const route of routes) {
   const appHtml = render(route.url);
   if (!template.includes('<div id="root"></div>')) {
-    throw new Error('Template não contém <div id="root"></div> para injeção.');
+    throw new Error('Template is missing <div id="root"></div> for prerendering.');
   }
   const html = template.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
   const outPath = resolve(dist, route.out);
@@ -30,5 +30,5 @@ for (const route of routes) {
   console.log(`prerendered ${route.url} -> dist/${route.out} (${(html.length / 1024).toFixed(1)} kB)`);
 }
 
-// Bundle de servidor é descartável: só serve para gerar o HTML.
+// The server bundle is temporary and exists only to generate static HTML.
 rmSync(ssrDir, { recursive: true, force: true });

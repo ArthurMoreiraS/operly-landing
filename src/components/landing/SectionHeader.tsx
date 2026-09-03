@@ -4,12 +4,12 @@ type SectionHeaderProps = {
   eyebrow: string;
   title: string;
   subtitle?: string;
-  /** "center" (padrão) ou "left" para seções em duas colunas. */
+  /** "center" (default) or "left" for two-column sections. */
   align?: "center" | "left";
   className?: string;
 };
 
-/** Cabeçalho padrão de seção: eyebrow + título + subtítulo. */
+/** Standard section header: eyebrow + title + subtitle. */
 export function SectionHeader({ eyebrow, title, subtitle, align = "center", className }: SectionHeaderProps) {
   return (
     <div className={cn("mb-14", align === "center" ? "text-center" : "text-center md:text-left", className)}>

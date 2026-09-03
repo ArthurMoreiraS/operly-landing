@@ -3,7 +3,7 @@ import { renderToString } from "react-dom/server";
 import { Router } from "wouter";
 import { AppRoutes } from "./AppRoutes";
 
-/** Renderiza uma rota para HTML estático no momento do build (SSG). */
+/** Render a route to static HTML during the SSG build. */
 export function render(url: string) {
   return renderToString(
     <StrictMode>

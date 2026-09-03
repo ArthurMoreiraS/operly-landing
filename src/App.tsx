@@ -14,8 +14,8 @@ import logo from "@/assets/logo.png";
 const APP_URL = import.meta.env.VITE_APP_URL || "https://app.operlyapp.com";
 
 const navAnchors = [
-  { href: "#funcionalidades", label: "Funcionalidades" },
-  { href: "#pricing", label: "Preço" },
+  { href: "#features", label: "Features" },
+  { href: "#pricing", label: "Pricing" },
   { href: "#faq", label: "FAQ" },
 ];
 
@@ -40,11 +40,11 @@ function Navbar() {
         </div>
         <div className="flex items-center gap-2 sm:gap-3">
           <Button variant="ghost" size="sm" asChild>
-            <a href={APP_URL}>Entrar</a>
+            <a href={APP_URL}>Sign in</a>
           </Button>
           <Button size="sm" className="rounded-full px-4 sm:px-6" onClick={scrollToDemo}>
-            <span className="hidden sm:inline">Ver demonstração</span>
-            <span className="sm:hidden">Ver demo</span>
+            <span className="hidden sm:inline">Book a demo</span>
+            <span className="sm:hidden">Demo</span>
           </Button>
         </div>
       </div>
@@ -60,15 +60,15 @@ function Footer() {
           <img src={logo} alt="" className="h-6 w-6 object-contain" />
           <span className="text-lg font-bold">Operly</span>
         </a>
-        <p className="text-sm text-gray-400">© 2026 Operly. Todos os direitos reservados.</p>
+        <p className="text-sm text-gray-400">© 2026 Operly. All rights reserved.</p>
         <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-300">
           {navAnchors.map((anchor) => (
             <a key={anchor.href} href={anchor.href} className="hover:text-white">{anchor.label}</a>
           ))}
-          <a href="/termos" className="hover:text-white">Termos</a>
-          <a href="/privacidade" className="hover:text-white">Privacidade</a>
+          <a href="/termos" className="hover:text-white">Terms</a>
+          <a href="/privacidade" className="hover:text-white">Privacy</a>
           <a href="https://instagram.com/operlybr" target="_blank" rel="noreferrer" className="hover:text-white">Instagram</a>
-          <a href={APP_URL} className="hover:text-white">Entrar no app</a>
+          <a href={APP_URL} className="hover:text-white">Sign in</a>
         </div>
       </div>
     </footer>

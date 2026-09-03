@@ -4,18 +4,18 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/landing/SectionHeader";
 import { MONTHLY_PRICE } from "@/lib/plans";
 
-// minimumFractionDigits é obrigatório junto do maximum: currency assume mínimo 2 e o Intl lança RangeError.
-const brl = new Intl.NumberFormat("pt-BR", {
+// Setting both fraction digit bounds keeps whole-dollar formatting consistent.
+const cad = new Intl.NumberFormat("en-CA", {
   style: "currency",
-  currency: "BRL",
+  currency: "CAD",
   minimumFractionDigits: 0,
   maximumFractionDigits: 0,
 });
 
 const WEEKS_PER_MONTH = 4.33;
-/** Fração das faltas recuperadas com lembretes — coerente com a métrica "−50% de faltas". */
+/** Illustrative share of no-shows recovered with reminders. */
 const RECOVERY_RATE = 0.5;
-/** Dias úteis médios de operação por mês, para a linha de contexto de faturamento. */
+/** Average operating days per month for the revenue context line. */
 const WORKING_DAYS_PER_MONTH = 26;
 
 type SliderFieldProps = {
@@ -65,30 +65,30 @@ export function RoiCalculator({ onDemoClick }: { onDemoClick: () => void }) {
     <section className="px-4 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
-          eyebrow="Faça as contas"
-          title="Quanto você está deixando na mesa?"
-          subtitle="Estimativa rápida com base na sua operação hoje."
+          eyebrow="Run the numbers"
+          title="How much revenue are no-shows costing you?"
+          subtitle="A quick estimate based on how your business operates today."
         />
         <Reveal className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-card/60 p-6 md:p-10">
           <div className="space-y-6">
-            <SliderField id="roi-cars" label="Carros por dia" min={1} max={60} value={carsPerDay} format={(value) => `${value}`} onChange={setCarsPerDay} />
-            <SliderField id="roi-ticket" label="Ticket médio" min={30} max={300} step={5} value={ticket} format={(value) => brl.format(value)} onChange={setTicket} />
-            <SliderField id="roi-noshows" label="Faltas por semana" min={0} max={20} value={noShowsPerWeek} format={(value) => `${value}`} onChange={setNoShowsPerWeek} />
+            <SliderField id="roi-cars" label="Cars per day" min={1} max={60} value={carsPerDay} format={(value) => `${value}`} onChange={setCarsPerDay} />
+            <SliderField id="roi-ticket" label="Average ticket" min={30} max={300} step={5} value={ticket} format={(value) => cad.format(value)} onChange={setTicket} />
+            <SliderField id="roi-noshows" label="No-shows per week" min={0} max={20} value={noShowsPerWeek} format={(value) => `${value}`} onChange={setNoShowsPerWeek} />
           </div>
           <div className="mt-8 rounded-2xl border border-primary/25 bg-primary/[0.06] p-6 text-center">
-            <p className="text-sm text-gray-300">Com um faturamento de ~{brl.format(monthlyRevenue)}/mês, as faltas custam</p>
+            <p className="text-sm text-gray-300">At roughly {cad.format(monthlyRevenue)}/month in revenue, no-shows cost</p>
             <p className="my-2 text-4xl font-bold text-primary md:text-5xl">
-              {brl.format(monthlyLoss)}
-              <span className="text-lg font-semibold text-gray-300">/mês</span>
+              {cad.format(monthlyLoss)}
+              <span className="text-lg font-semibold text-gray-300">/month</span>
             </p>
             <p className="text-sm text-gray-300">
-              Com lembretes automáticos você recupera ~<span className="font-semibold text-white">{brl.format(recovered)}/mês</span>
-              {multiple >= 1 && <> — {multiple.toFixed(1).replace(".", ",")}× a mensalidade do Operly</>}
+              Automated reminders could help recover ~<span className="font-semibold text-white">{cad.format(recovered)}/month</span>
+              {multiple >= 1 && <> — {multiple.toFixed(1)}× the monthly Operly subscription</>}
             </p>
           </div>
           <div className="mt-6 flex flex-col items-center gap-3">
-            <Button size="lg" className="w-full rounded-full sm:w-auto sm:px-10" onClick={onDemoClick}>Ver o Operly funcionando</Button>
-            <p className="text-xs text-gray-500">Estimativa ilustrativa. Resultados variam conforme a operação.</p>
+            <Button size="lg" className="w-full rounded-full sm:w-auto sm:px-10" onClick={onDemoClick}>See Operly in action</Button>
+            <p className="text-xs text-gray-500">Illustrative estimate. Results vary by business.</p>
           </div>
         </Reveal>
       </div>

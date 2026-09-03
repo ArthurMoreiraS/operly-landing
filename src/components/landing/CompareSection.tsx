@@ -5,16 +5,16 @@ import { SectionHeader } from "@/components/landing/SectionHeader";
 type Row = { label: string; paper: string; chat: string; operly: string };
 
 const rows: Row[] = [
-  { label: "Agendamento", paper: "Anotado à mão, sujeito a rasura", chat: "Cliente espera resposta no chat", operly: "Cliente agenda sozinho pelo link, 24h por dia" },
-  { label: "Lembretes", paper: "Não existem", chat: "Manuais, quando dá tempo", operly: "Automáticos antes de cada serviço" },
-  { label: "Faltas (no-show)", paper: "Frequentes e invisíveis", chat: "Percebidas tarde demais", operly: "Reduzidas com confirmação automática" },
-  { label: "Faturamento", paper: "Conferido só no fim do dia", chat: "Planilha desatualizada", operly: "Painel em tempo real" },
-  { label: "Histórico do cliente", paper: "Espalhado ou inexistente", chat: "Perdido na conversa", operly: "Ficha completa: veículos e serviços" },
+  { label: "Booking", paper: "Written by hand and easy to misread", chat: "Customers wait for a reply", operly: "Customers book through your link, 24/7" },
+  { label: "Reminders", paper: "Not available", chat: "Sent manually, when time allows", operly: "Sent automatically before every service" },
+  { label: "No-shows", paper: "Frequent and hard to track", chat: "Noticed when it is already too late", operly: "Reduced with automatic confirmation" },
+  { label: "Revenue", paper: "Checked only at the end of the day", chat: "Tracked in an outdated spreadsheet", operly: "Visible on a real-time dashboard" },
+  { label: "Customer history", paper: "Scattered or missing", chat: "Buried in conversations", operly: "One profile for vehicles and services" },
 ];
 
 const columns = [
-  { key: "paper" as const, title: "Papel e caderno", highlight: false },
-  { key: "chat" as const, title: "WhatsApp + planilha", highlight: false },
+  { key: "paper" as const, title: "Paper and notebook", highlight: false },
+  { key: "chat" as const, title: "WhatsApp + spreadsheet", highlight: false },
   { key: "operly" as const, title: "Operly", highlight: true },
 ];
 
@@ -23,17 +23,17 @@ export function CompareSection({ onDemoClick }: { onDemoClick: () => void }) {
     <section className="section-alt px-4 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
-          eyebrow="O custo do improviso"
-          title="Quanto custa continuar no caderno?"
-          subtitle="Compare a rotina de quem opera no papel com a de quem opera no Operly."
+          eyebrow="The cost of making do"
+          title="What is paper-based work costing you?"
+          subtitle="Compare a manual workflow with a business running on Operly."
         />
 
-        {/* Desktop: tabela comparativa */}
+        {/* Desktop comparison table. */}
         <Reveal className="hidden overflow-hidden rounded-3xl border border-white/10 md:block">
           <table className="w-full border-collapse text-sm">
             <thead>
               <tr className="border-b border-white/10 bg-white/[0.03]">
-                <th className="p-4 text-left font-semibold text-gray-400">Como você opera</th>
+                <th className="p-4 text-left font-semibold text-gray-400">Workflow</th>
                 {columns.map((column) => (
                   <th
                     key={column.key}
@@ -66,7 +66,7 @@ export function CompareSection({ onDemoClick }: { onDemoClick: () => void }) {
           </table>
         </Reveal>
 
-        {/* Mobile: cards empilhados (Operly por último, com destaque) */}
+        {/* Stacked mobile cards, with Operly highlighted last. */}
         <div className="space-y-4 md:hidden">
           {columns.map((column) => (
             <Reveal
@@ -95,7 +95,7 @@ export function CompareSection({ onDemoClick }: { onDemoClick: () => void }) {
 
         <div className="mt-10 text-center">
           <button type="button" onClick={onDemoClick} className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
-            Ver o Operly funcionando <ArrowRight size={16} />
+            See Operly in action <ArrowRight size={16} />
           </button>
         </div>
       </div>

@@ -2,7 +2,7 @@ import { Route, Switch } from "wouter";
 import App from "./App";
 import LegalPage from "./pages/Legal";
 
-/** Árvore de rotas compartilhada entre cliente (hydrate) e build (prerender). */
+/** Route tree shared by the client (hydrate) and build (prerender). */
 export function AppRoutes() {
   return (
     <Switch>

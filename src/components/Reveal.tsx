@@ -3,17 +3,17 @@ import { cn } from "@/lib/utils";
 
 type RevealProps<T extends ElementType> = {
   as?: T;
-  /** Direção da entrada. */
+  /** Entry direction. */
   from?: "up" | "left" | "right";
-  /** Atraso da transição em ms (para efeito escalonado). */
+  /** Transition delay in milliseconds for staggered effects. */
   delay?: number;
-  /** Anima assim que monta, sem esperar entrar na viewport (use acima da dobra). */
+  /** Animate on mount without waiting for the viewport (use above the fold). */
   immediate?: boolean;
 } & Omit<ComponentPropsWithoutRef<T>, "as">;
 
 /**
- * Substitui as animações de entrada do framer-motion por CSS + IntersectionObserver.
- * Mantém o mesmo efeito (fade + translate) com custo de bundle praticamente zero
+ * Replaces framer-motion entry animations with CSS and IntersectionObserver.
+ * Preserves the fade-and-translate effect with almost no bundle overhead.
  * e respeita `prefers-reduced-motion`.
  */
 export function Reveal<T extends ElementType = "div">({

@@ -3,28 +3,28 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/landing/SectionHeader";
 
 const bullets = [
-  "Lembrete automático na véspera e no dia do serviço",
-  "Cliente confirma presença com um toque",
-  "Confirmações e faltas aparecem no seu painel",
+  "Automatic reminders before every appointment",
+  "Customers confirm with one tap",
+  "Confirmations and no-shows appear in your dashboard",
 ];
 
 const messages = [
-  { from: "business", text: "Oi, Carlos! Lembrete: sua Lavagem completa é amanhã às 09:00. Confirma presença?", time: "18:02" },
-  { from: "client", text: "Confirmado ✅", time: "18:05" },
-  { from: "business", text: "Perfeito! Te esperamos amanhã. 🚗", time: "18:05" },
+  { from: "business", text: "Hi Carlos! A quick reminder: your Full Wash is tomorrow at 9:00 AM. Can you confirm?", time: "6:02 PM" },
+  { from: "client", text: "Confirmed ✅", time: "6:05 PM" },
+  { from: "business", text: "Perfect! See you tomorrow. 🚗", time: "6:05 PM" },
 ] as const;
 
 export function WhatsAppSection() {
   return (
-    <section id="lembretes" className="px-4 py-24">
+    <section id="reminders" className="px-4 py-24">
       <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
         <div>
           <SectionHeader
             align="left"
             className="mb-8"
-            eyebrow="Lembretes automáticos"
-            title="Cliente que recebe lembrete, aparece"
-            subtitle="O Operly avisa seus clientes pelo WhatsApp antes de cada serviço — e você só acompanha as confirmações."
+            eyebrow="Automated reminders"
+            title="Remind customers before every appointment"
+            subtitle="Operly sends WhatsApp reminders before each service, so you can focus on the confirmations."
           />
           <ul className="mx-auto max-w-md space-y-4 md:mx-0">
             {bullets.map((bullet) => (
@@ -37,26 +37,25 @@ export function WhatsAppSection() {
             ))}
           </ul>
           <p className="mt-8 text-center text-sm text-gray-400 md:text-left">
-            Operações com lembrete automático registram <span className="font-semibold text-primary">até 50% menos faltas</span>.*
+            Automated reminders can help businesses record <span className="font-semibold text-primary">up to 50% fewer no-shows</span>.*
           </p>
           <p className="mt-2 text-center text-xs text-gray-500 md:text-left">
-            *Estimativa com base no uso do produto. Resultados variam conforme a operação.
+            *Illustrative estimate based on product usage. Results vary by business.
           </p>
         </div>
 
         <div className="mx-auto w-full max-w-[340px]">
           <span className="sr-only">
-            Simulação de conversa: o Operly envia um lembrete do serviço agendado, o cliente responde confirmando e recebe
-            a confirmação final.
+            Sample conversation: Operly sends an appointment reminder, the customer confirms, and receives a final reply.
           </span>
-          {/* Moldura de celular com conversa estilo chat (sem logo do WhatsApp). */}
+          {/* Generic chat mockup without WhatsApp brand assets. */}
           <div aria-hidden="true" className="rounded-[2.5rem] border border-white/15 bg-[hsl(213_25%_12%)] p-3 shadow-2xl">
             <div className="overflow-hidden rounded-[2rem] bg-[hsl(213_25%_10%)]">
               <div className="flex items-center gap-3 border-b border-white/5 bg-white/[0.04] px-4 py-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/20 text-sm font-bold text-primary">LB</div>
                 <div>
-                  <p className="text-sm font-semibold text-white">Lava-Rápido do Bairro</p>
-                  <p className="text-[11px] text-emerald-400">online</p>
+                  <p className="text-sm font-semibold text-white">Neighbourhood Auto Spa</p>
+                  <p className="text-[11px] text-emerald-400">Online</p>
                 </div>
               </div>
               <div className="space-y-3 px-3 py-5">

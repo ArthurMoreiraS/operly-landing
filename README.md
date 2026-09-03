@@ -1,8 +1,8 @@
 # Operly Landing
 
-Landing page pública do Operly, separada da aplicação SaaS.
+Operly's public landing page, maintained separately from the SaaS application.
 
-## Desenvolvimento
+## Development
 
 ```bash
 pnpm install
@@ -20,10 +20,10 @@ pnpm build
 - Framework preset: Vite
 - Build command: `pnpm build`
 - Output directory: `dist`
-- Domínio principal: `operlyapp.com`
-- `www.operlyapp.com` deve redirecionar para o domínio principal.
+- Primary domain: `operlyapp.com`
+- `www.operlyapp.com` should redirect to the primary domain.
 
-Variáveis:
+Environment variables:
 
 ```env
 VITE_APP_URL=https://app.operlyapp.com

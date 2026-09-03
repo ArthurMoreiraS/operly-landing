@@ -65,12 +65,12 @@ p {
   box-shadow: 0 28px 70px rgb(0 0 0 / 0.18);
 }
 
-/* Fundo de seção alternada — troca o bg-black/15 chapado por gradiente sutil. */
+/* Alternating section background with a subtle gradient. */
 .section-alt {
   background: linear-gradient(180deg, rgb(0 0 0 / 0.2) 0%, rgb(0 0 0 / 0.05) 100%);
 }
 
-/* Hover sutil para cards interativos. */
+/* Subtle hover treatment for interactive cards. */
 .card-hover {
   transition:
     transform 0.25s ease,
@@ -84,7 +84,7 @@ p {
   box-shadow: 0 12px 40px rgb(0 0 0 / 0.25);
 }
 
-/* Grão de filme sutil sobre a página (SVG inline, sem request externo). */
+/* Subtle film grain using an inline SVG with no external request. */
 body::after {
   content: "";
   position: fixed;
@@ -99,7 +99,7 @@ body::after {
   min-height: 640px;
 }
 
-/* Animações de entrada (substitui framer-motion) */
+/* Entry animations replacing framer-motion. */
 .reveal {
   opacity: 0;
   transition:
@@ -124,8 +124,7 @@ body::after {
   transform: none;
 }
 
-/* Entrada acima da dobra: roda sozinha no load (sem JS), via CSS.
-   Garante conteúdo visível no HTML pré-renderizado e mata a tela cinza. */
+/* Above-the-fold entry runs on load in CSS, keeping prerendered content visible. */
 @keyframes rise {
   from {
     opacity: 0;
@@ -141,7 +140,7 @@ body::after {
   animation: rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Card flutuante do hero — micro-movimento contínuo para dar vida. */
+/* Floating hero card with subtle continuous motion. */
 @keyframes float {
   0%,
   100% {
@@ -181,7 +180,7 @@ body::after {
     transition-duration: 0.01ms !important;
   }
 
-  /* Garante que o conteúdo apareça mesmo sem animação. */
+  /* Keep content visible when animations are disabled. */
   .reveal,
   .rise {
     opacity: 1 !important;

@@ -14,8 +14,7 @@ const app = (
   </StrictMode>
 );
 
-// Produção: hidrata o HTML pré-renderizado (SSG).
-// Dev: #root vem vazio, então cria do zero.
+// Production hydrates the prerendered HTML; development renders into an empty root.
 if (rootEl.hasChildNodes()) {
   hydrateRoot(rootEl, app);
 } else {

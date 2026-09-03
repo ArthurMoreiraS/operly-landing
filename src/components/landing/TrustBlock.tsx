@@ -3,17 +3,17 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/landing/SectionHeader";
 
 const pillars = [
-  { icon: Zap, title: "Setup rápido", description: "Cadastre serviços e abra a agenda sem projeto longo de implantação." },
-  { icon: Headphones, title: "Suporte humano", description: "Fale com uma pessoa quando precisar configurar ou tirar uma dúvida." },
-  { icon: Lock, title: "Sem fidelidade", description: "Cancele quando quiser, sem multa ou carência escondida." },
-  { icon: Shield, title: "Dados exportáveis", description: "Clientes, histórico e faturamento continuam pertencendo ao seu negócio." },
+  { icon: Zap, title: "Fast setup", description: "Add services and open your booking calendar without a lengthy implementation project." },
+  { icon: Headphones, title: "Human support", description: "Talk to a real person whenever you need help setting up or answering a question." },
+  { icon: Lock, title: "No long-term contract", description: "Cancel anytime, with no cancellation fee or hidden lock-in." },
+  { icon: Shield, title: "Exportable data", description: "Your customers, history, and revenue data continue to belong to your business." },
 ];
 
 const metrics = [
-  { value: "−50%", label: "em faltas", context: "com lembretes automáticos*" },
-  { value: "24h", label: "de agenda aberta", context: "cliente marca pelo link, sem ligar" },
-  { value: "R$ 0", label: "de multa para cancelar", context: "sem fidelidade ou carência" },
-  { value: "< 10 min", label: "para começar", context: "do cadastro à agenda online" },
+  { value: "−50%", label: "fewer no-shows", context: "with automated reminders*" },
+  { value: "24/7", label: "online booking", context: "customers book without calling" },
+  { value: "CA$0", label: "cancellation fee", context: "no long-term contract or lock-in" },
+  { value: "< 10 min", label: "to get started", context: "from signup to online booking" },
 ];
 
 export function TrustBlock() {
@@ -21,23 +21,23 @@ export function TrustBlock() {
     <section className="px-4 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
-          eyebrow="Por que confiar"
-          title="Contratar o Operly tem volta"
-          subtitle="Sem fidelidade, com garantia de reembolso e com seus dados sempre exportáveis."
+          eyebrow="Why Operly"
+          title="Try Operly without the risk"
+          subtitle="No long-term contract, a refund guarantee, and data you can always export."
         />
 
-        {/* Herói do bloco: garantia de 14 dias */}
+        {/* 14-day refund guarantee. */}
         <Reveal className="mb-12 flex flex-col items-center gap-5 rounded-3xl border border-primary/40 bg-primary/[0.06] p-8 text-center md:flex-row md:text-left">
           <Shield className="h-12 w-12 shrink-0 text-primary" />
           <div>
-            <h3 className="text-xl font-bold text-white">Garantia de reembolso em 14 dias</h3>
+            <h3 className="text-xl font-bold text-white">14-day money-back guarantee</h3>
             <p className="mt-1 leading-7 text-gray-300">
-              Use o Operly completo por 14 dias. Se não fizer sentido para sua operação, é só pedir o reembolso dentro do período.
+              Use the complete Operly platform for 14 days. If it is not right for your operation, request a refund within that period.
             </p>
           </div>
         </Reveal>
 
-        {/* Pilares */}
+        {/* Trust pillars. */}
         <div className="mb-12 grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map((pillar) => (
             <article key={pillar.title} className="bg-card p-6">
@@ -48,7 +48,7 @@ export function TrustBlock() {
           ))}
         </div>
 
-        {/* Métricas */}
+        {/* Product metrics. */}
         <Reveal className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 lg:grid-cols-4">
           {metrics.map((metric) => (
             <div key={metric.label} className="bg-card p-6 text-center md:p-8">
@@ -58,7 +58,7 @@ export function TrustBlock() {
             </div>
           ))}
         </Reveal>
-        <p className="mt-6 text-center text-xs text-gray-400">*Redução de faltas estimada com base no uso do produto. Resultados variam conforme a operação.</p>
+        <p className="mt-6 text-center text-xs text-gray-400">*Illustrative no-show reduction based on product usage. Results vary by business.</p>
       </div>
     </section>
   );

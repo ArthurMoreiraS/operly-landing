@@ -3,9 +3,9 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/landing/SectionHeader";
 
 const steps = [
-  { icon: ClipboardList, title: "Cadastre seus serviços", description: "Adicione lavagens, pacotes, preços e duração de cada serviço." },
-  { icon: Share2, title: "Compartilhe seu link", description: "Seus clientes escolhem serviço e horário pelo celular, a qualquer hora." },
-  { icon: BellRing, title: "Acompanhe a operação", description: "Lembretes reduzem faltas, enquanto cada serviço entra no painel financeiro." },
+  { icon: ClipboardList, title: "Add your services", description: "Set up washes, packages, prices, and the duration of each service." },
+  { icon: Share2, title: "Share your booking link", description: "Customers choose a service and time from their phone, whenever it suits them." },
+  { icon: BellRing, title: "Run your operation", description: "Reminders help reduce no-shows while every service flows into your financial dashboard." },
 ];
 
 export function HowItWorks() {
@@ -13,15 +13,15 @@ export function HowItWorks() {
     <section className="section-alt px-4 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
-          eyebrow="Como funciona"
-          title="Da configuração ao primeiro agendamento"
-          subtitle="Três passos que refletem o fluxo real do seu negócio."
+          eyebrow="How it works"
+          title="From setup to your first booking"
+          subtitle="Three steps built around the way your business actually runs."
         />
         <div className="grid gap-8 md:grid-cols-3">
           {steps.map((step, index) => (
             <Reveal as="article" key={step.title} delay={index * 80} className="border-t border-white/15 pt-6">
               <div className="mb-6 flex items-center justify-between">
-                <span className="text-sm font-semibold text-primary">Passo {index + 1}</span>
+                <span className="text-sm font-semibold text-primary">Step {index + 1}</span>
                 <step.icon className="h-6 w-6 text-primary" />
               </div>
               <h3 className="mb-3 text-xl font-semibold text-white">{step.title}</h3>
