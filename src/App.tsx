@@ -67,7 +67,7 @@ function Footer() {
           ))}
           <a href="/termos" className="hover:text-white">Terms</a>
           <a href="/privacidade" className="hover:text-white">Privacy</a>
-          <a href="https://instagram.com/operlybr" target="_blank" rel="noreferrer" className="hover:text-white">Instagram</a>
+          <a href="https://www.instagram.com/operlyapp" target="_blank" rel="noreferrer" className="hover:text-white">Instagram</a>
           <a href={APP_URL} className="hover:text-white">Sign in</a>
         </div>
       </div>

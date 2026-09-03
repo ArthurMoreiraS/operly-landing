@@ -78,7 +78,7 @@ const termsSections: LegalSection[] = [
   {
     title: "10. Contato",
     body: [
-      "Para dúvidas sobre estes termos, fale com a Operly pelos canais oficiais disponíveis no site ou pelo Instagram @operlybr.",
+      "Para dúvidas sobre estes termos, fale com a Operly pelos canais oficiais disponíveis no site ou pelo Instagram @operlyapp.",
     ],
   },
 ];
@@ -166,7 +166,7 @@ const privacySections: LegalSection[] = [
     title: "12. Atualizações e contato",
     body: [
       "Esta política pode ser atualizada para refletir mudanças legais, operacionais ou de produto. A versão vigente ficará disponível nesta página.",
-      "Para dúvidas ou solicitações sobre privacidade, fale com a Operly pelos canais oficiais disponíveis no site ou pelo Instagram @operlybr.",
+      "Para dúvidas ou solicitações sobre privacidade, fale com a Operly pelos canais oficiais disponíveis no site ou pelo Instagram @operlyapp.",
     ],
   },
 ];
@@ -259,7 +259,7 @@ export default function LegalPage({ kind }: { kind: LegalKind }) {
                 Privacidade
               </a>
               <a
-                href="https://instagram.com/operlybr"
+                href="https://www.instagram.com/operlyapp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
