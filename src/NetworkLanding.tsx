@@ -5,6 +5,7 @@ import {
   useEffect,
   useRef,
   useState,
+  type MouseEvent,
   type ReactNode,
 } from "react";
 import {
@@ -108,6 +109,35 @@ export default function NetworkLanding() {
           ? "instant"
           : "smooth",
       });
+  };
+
+  const navigateToSection = (
+    event: MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    const target = document.getElementById(href.slice(1));
+    if (!target) return;
+
+    event.preventDefault();
+    setMenuOpen(false);
+    window.history.pushState(null, "", href);
+
+    // Wait for the menu to unmount before scrolling so mobile browsers use the
+    // final header height when calculating the target position.
+    window.requestAnimationFrame(() => {
+      const header = document.querySelector(".v3-header");
+      const headerHeight = header?.getBoundingClientRect().height ?? 0;
+      const top =
+        target.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+          .matches
+          ? "instant"
+          : "smooth",
+      });
+    });
   };
 
   useEffect(() => {
@@ -248,7 +278,11 @@ export default function NetworkLanding() {
               ["#pricing", "Pricing"],
               ["#faq", "Questions"],
             ].map(([href, label]) => (
-              <a key={href} href={href} onClick={() => setMenuOpen(false)}>
+              <a
+                key={href}
+                href={href}
+                onClick={(event) => navigateToSection(event, href)}
+              >
                 {label}
                 <ArrowUpRight size={18} />
               </a>
