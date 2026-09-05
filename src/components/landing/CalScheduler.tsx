@@ -7,7 +7,7 @@ function normalizeCalLink(value: string) {
 
 /**
  * Cal.com embed isolated in its own chunk.
- * Loaded with React.lazy only as the section approaches the viewport,
+ * Loaded with React.lazy only when the visitor opens the calendar,
  * keeping @calcom/embed-react out of the initial bundle.
  */
 export default function CalScheduler() {

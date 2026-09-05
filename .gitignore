@@ -1,4 +1,7 @@
 node_modules
+.pnpm-store
+.qa-tools
+.qa
 dist
 dist-ssr
 .vercel

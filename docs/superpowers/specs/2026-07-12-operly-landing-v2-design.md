@@ -1,8 +1,10 @@
 # Operly Landing v2 — Spec de Design
 
 **Data:** 2026-07-12
-**Status:** Aprovado pelo usuário
+**Status:** Histórico — aprovado para a v2 em julho; não rege a nova reformulação.
 **Executor previsto:** Claude Opus 4.8, em sessão separada, via plano de implementação
+
+> **Atualização de 2026-09-05:** O usuário confirmou a internacionalização do software e a landing voltada ao mercado internacional, em inglês. O foco no Brasil, os exemplos em reais e as restrições de layout abaixo documentam a versão anterior. Para o redesenho, consultar o [plano atual](../../operly-landing-redesign-plan.md) e a [direção do produto](../../../README.md#product-direction). A nova direção visual ainda é uma proposta; a mudança de mercado e idioma está confirmada.
 
 ## Contexto
 

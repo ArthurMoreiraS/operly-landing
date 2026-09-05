@@ -1,5 +1,7 @@
 # Operly Landing v2 — Implementation Plan
 
+> **Historical plan — superseded for the new redesign on 2026-09-05.** Operly now targets international markets, with English as the primary landing-page language, as confirmed by the user. The Portuguese copy requirement, BRL assumptions, and layout tasks below describe the previous v2 project. Follow the [current redesign proposal](../../operly-landing-redesign-plan.md) and [product direction](../../../README.md#product-direction) for new work. Visual selection is still pending; market and language are confirmed.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Evoluir a landing page do Operly para a estrutura de narrativa de conversão definida na spec `docs/superpowers/specs/2026-07-12-operly-landing-v2-design.md`, substituindo o screenshot vazio por um mockup em código e adicionando comparação, showcase, mock de WhatsApp e calculadora de ROI.
